@@ -1,0 +1,14 @@
+SELECT
+
+AVG(phq9.score) as average_phq9_score, providers.organization_name
+
+FROM phq9
+
+JOIN providers
+ON providers.provider_id = phq9.provider_Id
+
+GROUP BY providers.organization_name
+
+ORDER BY average_phq9_score desc
+
+LMIIT 5
