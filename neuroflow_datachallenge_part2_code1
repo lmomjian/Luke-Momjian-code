@@ -1,0 +1,44 @@
+SELECT
+b.yearmonth,
+(b.users_exercising_first_month/c.count::double precision)*100 || '%' as percent_completing_exercise_first_month
+
+
+
+FROM (
+
+SELECT
+count(distinct a.user_id) as users_exercising_first_month, a.yearmonth
+
+FROM users
+
+INNER JOIN (
+
+SELECT
+exercises.user_id,
+datepart(year, exercise_completion_date) || '-' || datepart(month, exercise_completion_date) as yearmonth
+
+FROM exercises
+
+) as a on (datepart(year, users.created_at) || '-' || datepart(month, users.created_at) = a.yearmonth)
+AND a.user_id = users.user_id
+
+GROUP BY yearmonth
+
+) as b
+
+
+
+JOIN (
+
+SELECT 
+count(user_id),
+datepart(year, created_at) || '-' || datepart(month, created_at) as yearmonth
+
+FROM users
+GROUP BY yearmonth
+
+) as c on b.yearmonth = c.yearmonth
+
+
+
+ORDER BY yearmonth desc
