@@ -1,5 +1,8 @@
-This repository contains 4 files on the NeuroFlow Data Analyst: Data Challenge.
+This repository contains 4 files for the NeuroFlow Data Analyst: Data Challenge.
 
-Two MS files for part 1, then two code files for part 2. 
+Part 1 contains one Excel file with graphs, and one Word doc with discussion.
+Since I have recently started learning Python and do not yet have proficiency in a programming language to generate the desired visualzations, I worked in MS Office to produce the necessary results. 
+
+Part 2 contains two Git files with SQL code.
 
 Created by Luke Momjian on Nov 30 2019.
